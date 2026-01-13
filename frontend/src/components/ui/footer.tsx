@@ -1,6 +1,7 @@
 import { useAuthStore } from "@/store/authStore"
 import { Button } from "@/components/ui/button"
 import { ScanLine, User, History, LogIn, UserPlus } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export function Footer() {
     const { isAuthenticated } = useAuthStore()
@@ -28,10 +29,12 @@ export function Footer() {
                     </>
                 ) : (
                     <>
-                        <Button variant="ghost" className="flex flex-col items-center gap-1 h-full w-20">
-                            <LogIn className="h-6 w-6" />
-                            <span className="text-xs">Entrar</span>
-                        </Button>
+                        <Link to="/login">
+                            <Button variant="ghost" className="flex flex-col items-center gap-1 h-full w-20">
+                                <LogIn className="h-6 w-6" />
+                                <span className="text-xs">Entrar</span>
+                            </Button>
+                        </Link>
 
                         <div className="absolute left-1/2 -translate-x-1/2 -top-6">
                             <Button size="icon" className="h-16 w-16 rounded-full shadow-lg border-4 border-background">
@@ -39,10 +42,12 @@ export function Footer() {
                             </Button>
                         </div>
 
-                        <Button variant="ghost" className="flex flex-col items-center gap-1 h-full w-20">
-                            <UserPlus className="h-6 w-6" />
-                            <span className="text-xs">Cadastrar</span>
-                        </Button>
+                        <Link to="/register">
+                            <Button variant="ghost" className="flex flex-col items-center gap-1 h-full w-20">
+                                <UserPlus className="h-6 w-6" />
+                                <span className="text-xs">Cadastrar</span>
+                            </Button>
+                        </Link>
                     </>
                 )}
             </div>
