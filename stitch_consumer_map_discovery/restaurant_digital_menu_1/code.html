@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session Orders &amp; Table View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#1a1a1a",
+                        "mocha": "#7A4C30",
+                        "charcoal": "#2C2C2C",
+                        "status-pending": "#F59E0B",
+                        "status-cooking": "#3B82F6",
+                        "status-ready": "#10B981",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .sticky-nav { position: sticky; top: 0; z-index: 40; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-gray-100 antialiased overflow-x-hidden min-h-screen">
+<div class="sticky-nav bg-white dark:bg-zinc-900 px-4 py-4 flex flex-col border-b border-gray-100 dark:border-zinc-800">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-zinc-800">
+<span class="material-symbols-outlined text-charcoal dark:text-white">arrow_back</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Active Session</h1>
+<p class="text-xs text-mocha dark:text-primary font-medium">Table 12 • 4 Guests</p>
+</div>
+</div>
+<button class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-zinc-800">
+<span class="material-symbols-outlined text-charcoal dark:text-white">help_outline</span>
+</button>
+</div>
+<div class="bg-gray-100 dark:bg-zinc-800 p-1 rounded-xl flex">
+<button class="flex-1 py-2 text-sm font-bold bg-white dark:bg-zinc-700 text-primary rounded-lg shadow-sm">My Orders</button>
+<button class="flex-1 py-2 text-sm font-medium text-gray-500 dark:text-gray-400">Table Orders</button>
+</div>
+</div>
+<div class="pb-44 px-4 pt-6">
+<div class="mb-6 grid grid-cols-2 gap-3">
+<div class="bg-white dark:bg-zinc-900 p-3 rounded-xl border border-gray-100 dark:border-zinc-800">
+<p class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Total Items</p>
+<p class="text-xl font-extrabold">06</p>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-3 rounded-xl border border-gray-100 dark:border-zinc-800">
+<p class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Preparation</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<div class="size-2 rounded-full bg-status-cooking animate-pulse"></div>
+<p class="text-sm font-bold">2 Cooking</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-lg font-extrabold tracking-tight">My Items</h2>
+<span class="text-primary text-xs font-bold uppercase tracking-widest">Ordered 12:45 PM</span>
+</div>
+<div class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-zinc-800">
+<div class="flex gap-4">
+<div class="size-16 rounded-lg bg-center bg-cover shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDDk7EjZRrZIdgXqOkXI8rdzxNquQGu3vvsFo9ZJOB6PzDJOPFutDZJaMEu27mU-yM-W5b1R15SXR8lxYbtDMELf4XIWh4RZQwGeTHts_AAchACMx17urEAZPQUSsXsRNKAi3HoabtQgVZVMNEp6U8n7Bjef8A-33J4YPL-kZxlbz1nMwbky7qUx6PL24VM3Apm3CDY2iK7I3OvqvImXRXiFIE4-CrpCTcq4zFVf9sFtZl06NkCEqns15opkezSPwNoM9LQ5Hf5WLh");'></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-base leading-tight">Truffle Parmesan Fries</h3>
+<span class="text-primary font-bold">$14.00</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5 italic">"No parsley please"</p>
+<div class="mt-3 flex items-center justify-between">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-status-ready/10 text-status-ready border border-status-ready/20">
+<span class="material-symbols-outlined text-[14px] font-bold">check_circle</span>
+<span class="text-[10px] font-black uppercase tracking-wider">Served</span>
+</div>
+<span class="text-[10px] font-bold text-gray-400">Qty: 1</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-zinc-800">
+<div class="flex gap-4">
+<div class="size-16 rounded-lg bg-center bg-cover shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLAk2X6Y_LGQdCkzkrvu_kpud0XhHdKGWkKf_Fzc05CVPqDSqKV_FezMbaY4EWuUguC-DfRGWIYBc9sdRpcTHKItfotM8M8LyPZ68iY0D7bX28z2TyCTUZ38tLZ2fbJ7mq39SWpzoLNbGo5R6lhI8dCmP1XHFVDkYDlxqdrrpGoksydRbeHaOzaIZgGLwVEfbHg-vAlKgtIdMjd4YU9ArjGBnQPndRy-SnkMd0l3wCvNCkakHh9ACizUkeTx4fNoke45LkyxDvo1Ui");'></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-base leading-tight">Signature Wagyu Burger</h3>
+<span class="text-primary font-bold">$24.00</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Medium rare, aged cheddar</p>
+<div class="mt-3 flex items-center justify-between">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-status-cooking/10 text-status-cooking border border-status-cooking/20">
+<span class="material-symbols-outlined text-[14px] font-bold">restaurant</span>
+<span class="text-[10px] font-black uppercase tracking-wider">Cooking</span>
+</div>
+<span class="text-[10px] font-bold text-gray-400">Qty: 1</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-zinc-800 opacity-80">
+<div class="flex gap-4">
+<div class="size-16 rounded-lg bg-center bg-cover shrink-0 grayscale" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgLJVOjYXYV4WKHoMxgHG5SJ-5vo-hY95mgOaBeFq62Of2MR6YUxgMC5oNvozs2yGCFZZCTK_9HQQVV4NTuByhLGu7NmNtUd79ng6LarcWTg6ZM0GP57L_yioSWLbgArQ0caZ5WX8Z3VtNsjylUWO1HzubXCqyZnGQLIUo8Bzcjws7p9rmWGRJHCO_wM-j4SaJN4vTnvBx4RnC0hpmCf8MSMUg2L33QFTQ10psC1qyqq6ZXC6sr61BvdlKjKqsiEulM_q8uduvsmNo");'></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-base leading-tight">Miso Glazed Salmon</h3>
+<span class="text-primary font-bold">$28.00</span>
+</div>
+<div class="mt-3 flex items-center justify-between">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-status-pending/10 text-status-pending border border-status-pending/20">
+<span class="material-symbols-outlined text-[14px] font-bold">schedule</span>
+<span class="text-[10px] font-black uppercase tracking-wider">Pending</span>
+</div>
+<span class="text-[10px] font-bold text-gray-400">Qty: 1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-10 border-t border-gray-100 dark:border-zinc-800 pt-8">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-lg font-extrabold tracking-tight">Table Members</h2>
+<button class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-1">
+                View All <span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</button>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<div class="flex flex-col items-center gap-2">
+<div class="size-12 rounded-full ring-2 ring-primary ring-offset-2 dark:ring-offset-zinc-900 overflow-hidden bg-gray-200">
+<img alt="User avatar" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrB3-noDG7JBCYUw5Ar7aq9cdxk2riDzWGaKw_XxsaiG4RjgiSuBkvNqnVYAsDP1UjkfjdEh4bPxKUuiGM3ujYGPBCOAVRabxV5Tw0EclHKxeKkn5xFJENBSq7DU5WZ1W1k1OMtFpCBqVQhetBDR5-xm8BQDFmTIPXJDTqkGVLW8u0XG3AjS3d-riymIdPbOpmjrYs9dKu3yJqIA1hukod1UNnPIGI-Wh-F6mDaytbf2R57d924L110lDTtLfFyay3Wd5keJHwJNOB"/>
+</div>
+<span class="text-[10px] font-bold">You</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="size-12 rounded-full overflow-hidden bg-gray-200">
+<img alt="User avatar" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIQi_fmu0j_jiPn6-ZiQbqw4q7rHcxB8XHQJHR41k_0Qf2fJ4uP29BpuBArAnehDipjPLExb2cavLIT00oAyCxHFteV04QKeR9id5jzv_UrJblORsQy6AEi1M09Exf5Fq_zSBRn7q52B-hXv0ET4iiDlX8z9znua4HrO9pJJR6J2fEK6Pr0cNmvaPYLquCuEXcXMbInowVCO1MbjnVg-TeEwxKp-pBYFxBxu-gK-PfzIq57avhUp5_g0pK0kQXbc0VaTiukYM61Ght"/>
+</div>
+<span class="text-[10px] font-medium text-gray-500">Sarah</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="size-12 rounded-full overflow-hidden bg-gray-200">
+<img alt="User avatar" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_fXAVIxD5IFPcP58pbDJV-nLnDyNKaO5JjArOUKavMP5v4ZR_J_6REEb6nZhydTGiy57TLceOaBU5h-B02-m1zuYGaWOhsmN8gswckSIUcbI42bo7g2cnC_QKSy2Tjg3j8MUX2GTiK9q5HobH2mWgro_vcP7t38QQtWW2O5Oa57IMp6wrT0V0WKtxtp6lKCmwKRlyEr24QXjh7jGBCv102qs_3ppQMkaihFihlZLTjYCcHrfxXdIaBuspxISzs9yvpFyXxe-KM5Bq"/>
+</div>
+<span class="text-[10px] font-medium text-gray-500">James</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="size-12 rounded-full overflow-hidden bg-gray-200">
+<img alt="User avatar" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6MFO48QtuajCYQ42BXFa4dmMbQAsNV7uoJ8Iah-sYcxyr5nEqiKH-gb1Fofv3wySXmaV3r9ra3SA2urAAho6c3xobGUTAmtfd7uoXO_mHeaKie7x1ZC3ucLgKhuBN3E_OSRdMeNH91SPyUUI5UWFmN2VbkoujWHfFpeZezIj-eY7jZMh7I9CUduHeWGP3_MkLgZX9AOPuzwVcO8zbpwaxbjvbf1qTZx2Z6PKXIgqPiM7AXIRpiAJ8K4Xzt9IP7Sz2htdmpYx5yG7f"/>
+</div>
+<span class="text-[10px] font-medium text-gray-500">Anna</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-20 left-4 right-4 z-50">
+<button class="w-full bg-primary hover:bg-orange-600 text-white rounded-2xl p-4 flex items-center justify-between shadow-2xl transition-all active:scale-95">
+<div class="flex flex-col items-start">
+<p class="text-[10px] uppercase font-black tracking-widest opacity-80">Final Total</p>
+<p class="text-xl font-extrabold leading-none">$66.00 <span class="text-xs font-normal opacity-70 ml-1">+ service</span></p>
+</div>
+<div class="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-xl">
+<span class="text-sm font-black uppercase tracking-wider">Pay Now</span>
+<span class="material-symbols-outlined text-lg">payments</span>
+</div>
+</button>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-zinc-800 px-6 py-3 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 group opacity-40">
+<span class="material-symbols-outlined text-charcoal dark:text-white">home</span>
+<span class="text-[10px] font-medium text-charcoal dark:text-white">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">receipt_long</span>
+<span class="text-[10px] font-bold text-primary">Orders</span>
+</div>
+<div class="flex flex-col items-center -mt-8">
+<div class="size-14 bg-mocha rounded-full flex items-center justify-center shadow-xl border-4 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined text-white text-3xl">qr_code_scanner</span>
+</div>
+<span class="text-[10px] font-bold text-mocha mt-1">Scan</span>
+</div>
+<div class="flex flex-col items-center gap-1 group opacity-40">
+<span class="material-symbols-outlined text-charcoal dark:text-white">person</span>
+<span class="text-[10px] font-medium text-charcoal dark:text-white">Profile</span>
+</div>
+<div class="flex flex-col items-center gap-1 group opacity-40">
+<span class="material-symbols-outlined text-charcoal dark:text-white">more_horiz</span>
+<span class="text-[10px] font-medium text-charcoal dark:text-white">More</span>
+</div>
+</div>
+
+</body></html>

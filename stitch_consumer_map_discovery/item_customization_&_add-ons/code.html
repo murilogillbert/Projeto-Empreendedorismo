@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Item Customization &amp; Add-ons</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#f48525",
+                "background-light": "#f4f2f0",
+                "background-dark": "#2a2622",
+                "brand-brown": "#574A3D",
+                "brand-muted": "#8B8278",
+              },
+              fontFamily: {
+                "display": ["Plus Jakarta Sans"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .radio-dot {
+            --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27%23f48525%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%274%27/%3e%3c/svg%3e');
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-brand-brown dark:text-background-light antialiased">
+<div class="relative flex min-h-screen flex-col pb-32">
+<!-- Top Navigation (iOS Style) -->
+<nav class="sticky top-0 z-30 flex items-center justify-between px-4 py-4 bg-background-light/80 dark:bg-background-dark/80 ios-blur">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-zinc-800 shadow-sm">
+<span class="material-symbols-outlined text-brand-brown dark:text-white">arrow_back_ios_new</span>
+</button>
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-zinc-800 shadow-sm">
+<span class="material-symbols-outlined text-brand-brown dark:text-white">share</span>
+</div>
+</nav>
+<!-- Hero Section -->
+<div class="px-4 pb-4">
+<div class="w-full h-80 bg-center bg-no-repeat bg-cover rounded-xl shadow-lg" data-alt="Gourmet signature truffle burger with melting cheese" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCMgJ4QDUJhClVqYBTQrrcN9UvNONwKFIjM50XT7DxdnwdSrKZrPPgEIey6FnTaGlC6NRBtJy5eqd84hVgbkHpWo0k0FoZjAbEwBcC2prRYUM5-VhvulwJJOiESnLkOwqlEZJWgwma0LLIW_Ue2v4jN7i6f3Ho5kcGr2dWAtJ_GNt-j9bZbRLt33RxC6B8WCgJMJVj8_Vuqw6qzUx47ZkwGRNCDgsRrsfrgOA4V7BLB-nIK-27ZT8wRmy0MrJiJuf4eZuMPWU-acDBh");'>
+</div>
+</div>
+<!-- Item Identity -->
+<div class="px-4 pt-4">
+<div class="flex items-start justify-between">
+<div>
+<h1 class="text-3xl font-bold leading-tight tracking-tight text-brand-brown dark:text-white">Signature Truffle Burger</h1>
+<p class="mt-2 text-brand-muted dark:text-zinc-400 leading-relaxed max-w-[90%]">Double-stacked prime beef, black truffle aioli, aged gruyère, and caramelized onions on a toasted brioche bun.</p>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-2xl font-bold text-primary">$18.50</span>
+<span class="text-sm font-medium text-brand-muted line-through opacity-60">$22.00</span>
+</div>
+</div>
+<div class="mt-8 space-y-8">
+<!-- Required Section: Protein -->
+<section>
+<div class="flex items-center justify-between px-4 pb-4">
+<h3 class="text-lg font-bold tracking-tight">Choose Your Protein</h3>
+<span class="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">Required</span>
+</div>
+<div class="flex flex-col gap-3 px-4 radio-dot">
+<label class="flex items-center gap-4 rounded-xl border-2 border-primary bg-white dark:bg-zinc-800 p-4 transition-all">
+<input checked="" class="h-6 w-6 border-2 border-zinc-200 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="protein" type="radio"/>
+<div class="flex grow flex-col">
+<p class="font-bold text-brand-brown dark:text-white">Double Beef Patty</p>
+<p class="text-xs text-brand-muted dark:text-zinc-400">Standard premium blend</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border-2 border-transparent bg-white dark:bg-zinc-800 p-4 transition-all hover:border-zinc-200">
+<input class="h-6 w-6 border-2 border-zinc-200 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="protein" type="radio"/>
+<div class="flex grow flex-col">
+<p class="font-bold text-brand-brown dark:text-white">Grilled Chicken Breast</p>
+<p class="text-xs text-brand-muted dark:text-zinc-400">Herb-marinated</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border-2 border-transparent bg-white dark:bg-zinc-800 p-4 transition-all hover:border-zinc-200">
+<input class="h-6 w-6 border-2 border-zinc-200 bg-transparent text-transparent checked:border-primary checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="protein" type="radio"/>
+<div class="flex grow flex-col">
+<div class="flex items-center justify-between">
+<p class="font-bold text-brand-brown dark:text-white">Beyond Meat® Patty</p>
+<span class="text-sm font-semibold text-primary">+$3.00</span>
+</div>
+<p class="text-xs text-brand-muted dark:text-zinc-400">Plant-based alternative</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Optional Section: Add-ons -->
+<section>
+<div class="flex items-center justify-between px-4 pb-4">
+<h3 class="text-lg font-bold tracking-tight">Add Extras</h3>
+<span class="text-xs font-medium text-brand-muted">Optional</span>
+</div>
+<div class="flex flex-col gap-3 px-4">
+<label class="flex items-center gap-4 rounded-xl bg-white dark:bg-zinc-800 p-4 shadow-sm border border-transparent">
+<input class="h-6 w-6 rounded-md border-2 border-zinc-200 text-primary focus:ring-0 focus:ring-offset-0 dark:bg-zinc-700" type="checkbox"/>
+<div class="flex grow items-center justify-between">
+<p class="font-semibold">Extra Aged Gruyère</p>
+<span class="text-sm font-medium text-brand-muted">+$2.00</span>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl bg-white dark:bg-zinc-800 p-4 shadow-sm border border-transparent">
+<input checked="" class="h-6 w-6 rounded-md border-2 border-zinc-200 text-primary focus:ring-0 focus:ring-offset-0 dark:bg-zinc-700" type="checkbox"/>
+<div class="flex grow items-center justify-between">
+<p class="font-semibold">Crispy Bacon</p>
+<span class="text-sm font-medium text-brand-muted">+$2.50</span>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl bg-white dark:bg-zinc-800 p-4 shadow-sm border border-transparent">
+<input class="h-6 w-6 rounded-md border-2 border-zinc-200 text-primary focus:ring-0 focus:ring-offset-0 dark:bg-zinc-700" type="checkbox"/>
+<div class="flex grow items-center justify-between">
+<p class="font-semibold">Fried Egg</p>
+<span class="text-sm font-medium text-brand-muted">+$1.50</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Special Instructions -->
+<section class="px-4">
+<h3 class="text-lg font-bold tracking-tight pb-3">Special Instructions</h3>
+<textarea class="w-full rounded-xl border-zinc-200 bg-white dark:bg-zinc-800 dark:border-zinc-700 p-4 text-brand-brown dark:text-white placeholder:text-brand-muted focus:border-primary focus:ring-1 focus:ring-primary min-h-[120px] resize-none" placeholder="e.g. No onions, extra napkins, sauce on the side..."></textarea>
+</section>
+</div>
+<!-- Sticky Bottom Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/90 dark:bg-background-dark/90 ios-blur border-t border-zinc-200 dark:border-zinc-800">
+<div class="mx-auto flex max-w-lg items-center gap-4">
+<!-- Quantity Selector -->
+<div class="flex items-center justify-between rounded-full bg-zinc-100 dark:bg-zinc-800 p-1 min-w-[120px]">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-zinc-700 text-brand-brown dark:text-white shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-xl">remove</span>
+</button>
+<span class="text-lg font-bold px-4">1</span>
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-zinc-700 text-brand-brown dark:text-white shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+<!-- Main CTA -->
+<button class="flex flex-1 items-center justify-between rounded-full bg-primary px-6 py-4 text-white shadow-lg shadow-primary/30 active:scale-[0.98] transition-all">
+<span class="font-bold text-lg">Add to Order</span>
+<span class="h-6 w-[1px] bg-white/30 mx-2"></span>
+<span class="font-bold text-lg leading-none">$21.00</span>
+</button>
+</div>
+<!-- iOS Home Indicator Spacing -->
+<div class="h-6"></div>
+</div>
+</div>
+</body></html>

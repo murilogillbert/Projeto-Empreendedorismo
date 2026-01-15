@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manager Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#1a1a1a",
+                        "mocha": "#7a4c30",
+                        "sage": "#07880e",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .chart-gradient-bg {
+            background: linear-gradient(180deg, rgba(230, 92, 0, 0.1) 0%, rgba(230, 92, 0, 0) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#181410] dark:text-white min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="Professional profile photo of restaurant manager" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBk6IL5xKErUUbURGKYPHWJFQRcJB581vVcqeC9wbNj3DPenEh9eUSj6A54RbjCbVRP2T6ZB1af4d8AF9H1kW385cOP-1TviwKLzIqNprzYCXFYykT7axTYkncvouJr6AJswphWwPFHyZ4iDhwxZXL1UItTSXIhVtWfTN-k3AhIhp8bVPIwlghzuGGnVD3i76al5r8A8s65hpKRyyWNkz3z9vQVGQthGEM6XDPQkY5tgaPIMw2PSQUKCGbhXaxavONFK4bA88zR7qDo')"></div>
+<div>
+<h1 class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Manager View</h1>
+<h2 class="text-lg font-extrabold leading-none tracking-tight">Analytics</h2>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full bg-white dark:bg-zinc-800 shadow-sm border border-gray-100 dark:border-zinc-700">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto">
+<!-- Filter Pills -->
+<div class="flex gap-2 p-4 overflow-x-auto custom-scrollbar">
+<button class="px-5 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">Today</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-zinc-800 text-gray-600 dark:text-gray-300 text-sm font-semibold border border-gray-100 dark:border-zinc-700">Weekly</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-zinc-800 text-gray-600 dark:text-gray-300 text-sm font-semibold border border-gray-100 dark:border-zinc-700">Monthly</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-zinc-800 text-gray-600 dark:text-gray-300 text-sm font-semibold border border-gray-100 dark:border-zinc-700">Custom</button>
+</div>
+<!-- Quick Insights Section -->
+<div class="px-4 pb-4">
+<div class="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<p class="text-sm font-medium leading-tight">
+<span class="font-bold text-primary">Insight:</span> Mondays are seeing a 15% increase in burger orders. Consider running a "Burger Monday" special.
+                </p>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 gap-4 px-4">
+<div class="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-gray-100 dark:border-zinc-800 shadow-sm col-span-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Today's Revenue</p>
+<div class="flex items-end justify-between mt-1">
+<h3 class="text-3xl font-extrabold">$1,240.50</h3>
+<div class="flex items-center text-sage font-bold text-sm bg-sage/10 px-2 py-1 rounded-lg mb-1">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span>+12%
+                    </div>
+</div>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-gray-100 dark:border-zinc-800 shadow-sm">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Active Orders</p>
+<h3 class="text-2xl font-extrabold mt-1">12</h3>
+<p class="text-xs text-gray-400 mt-1">4 in kitchen</p>
+</div>
+<div class="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-gray-100 dark:border-zinc-800 shadow-sm">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Occupancy</p>
+<div class="flex items-center gap-2 mt-1">
+<h3 class="text-2xl font-extrabold">85%</h3>
+<span class="text-xs font-bold text-sage">+5%</span>
+</div>
+<p class="text-xs text-gray-400 mt-1">Peak capacity</p>
+</div>
+</div>
+<!-- Busiest Times Chart -->
+<section class="mt-6 px-4">
+<div class="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-gray-100 dark:border-zinc-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-lg font-bold">Busiest Times</h2>
+<div class="flex gap-1 items-center">
+<span class="text-xs text-gray-500 font-medium">Peak: 7PM - 9PM</span>
+<span class="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">+15% traffic</span>
+</div>
+</div>
+<button class="text-gray-400"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<div class="h-40 w-full relative mt-6">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 120">
+<defs>
+<lineargradient id="chart-fill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#e65c00" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#e65c00" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Chart Area Fill -->
+<path d="M0,100 Q40,90 80,60 T160,70 T240,30 T320,60 T400,20 L400,120 L0,120 Z" fill="url(#chart-fill)"></path>
+<!-- Chart Line -->
+<path d="M0,100 Q40,90 80,60 T160,70 T240,30 T320,60 T400,20" fill="none" stroke="#e65c00" stroke-linecap="round" stroke-width="3"></path>
+<!-- Highlight Point -->
+<circle cx="240" cy="30" fill="#e65c00" r="5" stroke="white" stroke-width="2"></circle>
+</svg>
+<div class="flex justify-between mt-2 px-1">
+<span class="text-[10px] font-bold text-gray-400">12PM</span>
+<span class="text-[10px] font-bold text-gray-400">3PM</span>
+<span class="text-[10px] font-bold text-primary">6PM</span>
+<span class="text-[10px] font-bold text-gray-400">9PM</span>
+<span class="text-[10px] font-bold text-gray-400">12AM</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Most Ordered Bar Chart -->
+<section class="mt-4 px-4">
+<div class="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-gray-100 dark:border-zinc-800 shadow-sm">
+<h2 class="text-lg font-bold mb-4">Most Ordered Items</h2>
+<div class="space-y-4">
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-gray-700 dark:text-gray-300">Wagyu Burger</span>
+<span class="text-primary">142 orders</span>
+</div>
+<div class="h-2 w-full bg-gray-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-gray-700 dark:text-gray-300">Truffle Pasta</span>
+<span class="text-gray-500">98 orders</span>
+</div>
+<div class="h-2 w-full bg-gray-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+<div class="h-full bg-mocha rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-gray-700 dark:text-gray-300">Quinoa Salad</span>
+<span class="text-gray-500">64 orders</span>
+</div>
+<div class="h-2 w-full bg-gray-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+<div class="h-full bg-mocha rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-gray-700 dark:text-gray-300">Baja Tacos</span>
+<span class="text-gray-500">42 orders</span>
+</div>
+<div class="h-2 w-full bg-gray-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+<div class="h-full bg-mocha rounded-full" style="width: 25%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="mt-6 px-4">
+<h2 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-3 ml-1">Management Tools</h2>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 p-5 bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-xl shadow-sm active:scale-95 transition-transform">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">restaurant_menu</span>
+</div>
+<span class="text-sm font-bold">Edit Menu</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-5 bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-xl shadow-sm active:scale-95 transition-transform">
+<div class="size-12 rounded-full bg-mocha/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-mocha">group</span>
+</div>
+<span class="text-sm font-bold">Manage Staff</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-5 bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-xl shadow-sm active:scale-95 transition-transform">
+<div class="size-12 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-600">inventory_2</span>
+</div>
+<span class="text-sm font-bold">Inventory</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-5 bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-xl shadow-sm active:scale-95 transition-transform">
+<div class="size-12 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-600">reviews</span>
+</div>
+<span class="text-sm font-bold">Reviews</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border-t border-gray-200 dark:border-zinc-800 px-6 pb-8 pt-3 flex justify-between items-center z-[100]">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[28px] font-fill-1">dashboard</span>
+<span class="text-[10px] font-bold">Overview</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined text-[28px]">orders</span>
+<span class="text-[10px] font-bold">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined text-[28px]">menu_book</span>
+<span class="text-[10px] font-bold">Menu</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined text-[28px]">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</div>
+</nav>
+<style>
+        .font-fill-1 {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</body></html>

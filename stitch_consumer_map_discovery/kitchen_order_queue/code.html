@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "accent-mocha": "#1a1614",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .ticket-border-urgent { border-left: 6px solid #e65c00; }
+        .ticket-border-normal { border-left: 6px solid #4a9e4d; }
+        .ticket-border-warning { border-left: 6px solid #facc15; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-[#181410] dark:text-white">
+<!-- TopAppBar with Darker Header -->
+<header class="sticky top-0 z-50 bg-accent-mocha text-white p-4 shadow-lg">
+<div class="flex items-center justify-between max-w-xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">restaurant</span>
+<div>
+<h1 class="text-lg font-extrabold leading-tight tracking-tight">Kitchen Order Queue</h1>
+<p class="text-xs text-gray-400 font-medium">BOULEVARD BISTRO • STATION A</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/30">
+                    12 ACTIVE
+                </span>
+</div>
+</div>
+</header>
+<!-- Tabs for Filtering -->
+<nav class="bg-accent-mocha/95 backdrop-blur-md sticky top-[72px] z-40">
+<div class="flex border-b border-white/10 px-4 gap-6 max-w-xl mx-auto overflow-x-auto no-scrollbar">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-primary text-white pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-extrabold">ALL TICKETS</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-gray-400 pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-bold">DINE-IN</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-gray-400 pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-bold">PICKUP</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-transparent text-gray-400 pb-3 pt-4 shrink-0" href="#">
+<p class="text-sm font-bold">READY (45)</p>
+</a>
+</div>
+</nav>
+<!-- Main Queue Container -->
+<main class="p-4 flex flex-col gap-4 max-w-xl mx-auto pb-24">
+<!-- Urgent Ticket -->
+<div class="ticket-border-urgent bg-white dark:bg-[#1e1e1e] rounded-lg shadow-md overflow-hidden">
+<div class="p-4">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-black uppercase tracking-widest text-primary mb-1">Dine-In • Express</span>
+<h2 class="text-2xl font-extrabold tracking-tighter">TABLE 05</h2>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-lg">18m</span>
+</div>
+<span class="text-[10px] text-gray-400 font-bold uppercase">Elapsed Time</span>
+</div>
+</div>
+<!-- Item List -->
+<div class="space-y-3 mb-6">
+<div class="flex items-start gap-3">
+<span class="bg-gray-100 dark:bg-zinc-800 text-sm font-black p-2 rounded min-w-[32px] text-center">2x</span>
+<div class="flex-1">
+<p class="text-lg font-bold">Truffle Tagliatelle</p>
+<p class="text-sm text-gray-500 italic">Extra parmesan on side</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="bg-gray-100 dark:bg-zinc-800 text-sm font-black p-2 rounded min-w-[32px] text-center">1x</span>
+<div class="flex-1">
+<p class="text-lg font-bold">Classic Caesar Salad</p>
+<p class="text-sm text-gray-500 italic">No croutons</p>
+</div>
+</div>
+</div>
+<!-- Special Note Box -->
+<div class="bg-orange-50 dark:bg-primary/5 border border-primary/20 p-3 rounded-lg flex gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">warning</span>
+<div>
+<p class="text-[10px] font-bold text-primary uppercase">Special Note</p>
+<p class="text-sm font-bold text-[#4a3224] dark:text-orange-200">SEVERE NUT ALLERGY. Clean pans only.</p>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-orange-600 text-white py-4 rounded-xl font-extrabold text-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">check_circle</span>
+                    MARK AS READY
+                </button>
+</div>
+</div>
+<!-- Normal Ticket -->
+<div class="ticket-border-normal bg-white dark:bg-[#1e1e1e] rounded-lg shadow-md overflow-hidden">
+<div class="p-4">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-black uppercase tracking-widest text-green-600 mb-1">App Store • Pickup</span>
+<h2 class="text-2xl font-extrabold tracking-tighter">PICKUP #128</h2>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-green-600 font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-lg">4m</span>
+</div>
+<span class="text-[10px] text-gray-400 font-bold uppercase">Elapsed Time</span>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex items-start gap-3">
+<span class="bg-gray-100 dark:bg-zinc-800 text-sm font-black p-2 rounded min-w-[32px] text-center">1x</span>
+<div class="flex-1">
+<p class="text-lg font-bold">Double Wagyu Burger</p>
+<p class="text-sm text-gray-500 italic">Medium-Well</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="bg-gray-100 dark:bg-zinc-800 text-sm font-black p-2 rounded min-w-[32px] text-center">1x</span>
+<div class="flex-1">
+<p class="text-lg font-bold">Sweet Potato Fries</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-orange-600 text-white py-4 rounded-xl font-extrabold text-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">check_circle</span>
+                    MARK AS READY
+                </button>
+</div>
+</div>
+<!-- Warning Ticket -->
+<div class="ticket-border-warning bg-white dark:bg-[#1e1e1e] rounded-lg shadow-md overflow-hidden opacity-90">
+<div class="p-4">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-black uppercase tracking-widest text-yellow-600 mb-1">Dine-In • Side Room</span>
+<h2 class="text-2xl font-extrabold tracking-tighter">TABLE 12</h2>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-yellow-600 font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-lg">12m</span>
+</div>
+<span class="text-[10px] text-gray-400 font-bold uppercase">Elapsed Time</span>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex items-start gap-3">
+<span class="bg-gray-100 dark:bg-zinc-800 text-sm font-black p-2 rounded min-w-[32px] text-center">3x</span>
+<div class="flex-1">
+<p class="text-lg font-bold">Margherita Pizza</p>
+<p class="text-sm text-gray-500 italic">Well done crust</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="bg-gray-100 dark:bg-zinc-800 text-sm font-black p-2 rounded min-w-[32px] text-center">2x</span>
+<div class="flex-1">
+<p class="text-lg font-bold">Garlic Bread</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-orange-600 text-white py-4 rounded-xl font-extrabold text-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">check_circle</span>
+                    MARK AS READY
+                </button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar for Mobile -->
+<footer class="fixed bottom-0 left-0 right-0 bg-accent-mocha border-t border-white/10 p-2 flex justify-around items-center z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">pending_actions</span>
+<span class="text-[10px] font-bold">QUEUE</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">inventory</span>
+<span class="text-[10px] font-bold">INVENTORY</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[10px] font-bold">STATS</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">CONFIG</span>
+</button>
+</footer>
+<!-- Overlay for Image/Media Placeholder (Hidden) -->
+<div class="hidden">
+<div data-alt="Close up of a stainless steel kitchen counter with order slips clipped to a rail"></div>
+</div>
+</body></html>

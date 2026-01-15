@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Split Payment Session</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#1a1a1a",
+                        "sage": "#6D9773",
+                        "charcoal": "#181410",
+                        "mocha": "#8d715e"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+<div class="max-w-[480px] mx-auto bg-white dark:bg-background-dark min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="text-charcoal dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-charcoal dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Split Bill</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-xl h-12 bg-transparent text-charcoal dark:text-white">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<main class="flex-1 pb-32">
+<!-- Hero Bill Card -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] bg-white dark:bg-zinc-900 border border-gray-50 dark:border-zinc-800">
+<div class="w-full bg-center bg-no-repeat aspect-[21/9] bg-cover rounded-t-xl" data-alt="Interior of a modern artisan bistro with warm lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbh1T_R8WM7zUaedJ3GUI45GEewqiDwSbXhrj_DWhtTEkXnHPey06bs0Jc9dM7OnLlFYdc3LozPXYrHYr7iBRUWrCH4JUEY_oX5ZjM4L8zRtjlfbE3NZjRM5yVcXad7f2l5MDslmuGUUH_SFMW9ayrc0Lvb7XXiqxKEZlChsD234lqawAscKpAzXC2iJFEbz7L69bgtp3fwLvKFq1jkFIuJTsOwy_VQkTa81cKWEjSnDUohxXR82nMfJLxnpjz0Nvmc0BrZPWkm944");'>
+</div>
+<div class="flex w-full flex-col items-stretch justify-center gap-1 p-6">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-mocha dark:text-zinc-400 text-xs font-bold uppercase tracking-widest">The Artisan Bistro</p>
+<p class="text-charcoal dark:text-white text-4xl font-extrabold leading-tight tracking-tight mt-1">$245.50</p>
+</div>
+<div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">
+                                Table 12
+                            </div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-mocha dark:text-zinc-400 text-sm">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+<span>Order #88291 • Includes 15% service charge</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="flex flex-col gap-3 px-6 py-2">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-charcoal dark:text-white text-sm font-semibold uppercase tracking-tight">Payment Progress</p>
+<p class="text-charcoal dark:text-white text-sm font-bold">$110.47 of $245.50</p>
+</div>
+<div class="h-3 rounded-full bg-gray-100 dark:bg-zinc-800 overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 45%;"></div>
+</div>
+<p class="text-mocha dark:text-zinc-400 text-xs font-medium">45% of the total bill is covered by 2 people</p>
+</div>
+<!-- Session Management -->
+<div class="px-4 pt-6 pb-2">
+<div class="bg-mocha/5 dark:bg-primary/5 rounded-xl p-4 flex items-center justify-between border border-mocha/10 dark:border-primary/10">
+<div class="flex items-center gap-3">
+<div class="bg-white dark:bg-zinc-800 p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary">share</span>
+</div>
+<div>
+<p class="text-charcoal dark:text-white text-sm font-bold">Invite others</p>
+<p class="text-mocha dark:text-zinc-400 text-xs">Share link or QR code to join</p>
+</div>
+</div>
+<button class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-lg">
+                        Generate Link
+                    </button>
+</div>
+</div>
+<!-- SectionHeader -->
+<div class="flex items-center justify-between px-6 pt-6 pb-2">
+<h2 class="text-charcoal dark:text-white text-xl font-extrabold tracking-tight">Participants</h2>
+<span class="text-mocha dark:text-zinc-400 text-xs font-bold">4 TOTAL</span>
+</div>
+<!-- Participants List -->
+<div class="flex flex-col gap-1 px-4">
+<!-- Host Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-zinc-900 px-4 min-h-[72px] py-3 justify-between rounded-xl border border-transparent hover:border-gray-100 dark:hover:border-zinc-800 transition-all">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 ring-2 ring-primary/20" data-alt="User avatar of a smiling person" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKrNLyQ6G0z8ct-pfWedT_TU_nOij2bZ8s64l_0x4_q6HqOewEhM-wQjUXaFHQtfSUo5m75ka0z_MXP_-mVyyHwbVS-rQgT0lQAlSbWruqfh42qNgL6oUe8aR390DF4K34z1cqmB2lOG69LtbR_Hk7KoAZy80neud9Q1UuZ_0Og7q1JQM76MfcrHJOqna7mfSk8UnKjqsT_RCAajCILb9OeMLWlHuBSARxKxL03MU_q2NGt-XtIIK2glG0CsBIDCpt6DLvXzBJThid");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-charcoal dark:text-white text-base font-bold leading-none">You (Host)</p>
+<p class="text-mocha dark:text-zinc-400 text-sm font-medium mt-1">$61.38 (25%)</p>
+</div>
+</div>
+<div class="shrink-0 flex flex-col items-end gap-1">
+<span class="text-sage text-[10px] font-black uppercase tracking-widest">PAID</span>
+<div class="flex size-6 items-center justify-center rounded-full bg-sage/10 text-sage">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Sarah Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-zinc-900 px-4 min-h-[72px] py-3 justify-between rounded-xl">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" data-alt="User avatar of Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMdh4IDJpwlkyy_9M9a6kvnr6Y8tCCwGORQEofWcwwM8wzKX4i7PR_tuaixpfd7Zu3z3FBu_ABM6q0EQ5R9oOwY2rYncqp73t6XPxaTrlZoavYgOvpCVyf_Peq-fWPs2muOnN6in1sj8bc9NprWHgxvnN2WCno13KeWfJIT1Ypqx9ps4nl56cL9vYjLjZ-igZWODX_eDQmEG5TBxfi_cDfRKGBRxZof2LgCNnvCg5r8iwsU9ln9wYQJglD5DrUF7zT5ZF6cwRfyzuI");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-charcoal dark:text-white text-base font-bold leading-none">Sarah Chen</p>
+<p class="text-mocha dark:text-zinc-400 text-sm font-medium mt-1">$49.10 (20%)</p>
+</div>
+</div>
+<div class="shrink-0 flex flex-col items-end gap-1">
+<span class="text-sage text-[10px] font-black uppercase tracking-widest">PAID</span>
+<div class="flex size-6 items-center justify-center rounded-full bg-sage/10 text-sage">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</div>
+</div>
+</div>
+<!-- James Item -->
+<div class="flex items-center gap-4 bg-white dark:bg-zinc-900 px-4 min-h-[72px] py-3 justify-between rounded-xl">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12 grayscale opacity-50" data-alt="User avatar of James" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7gcbYRhhDosu42NO5V7rZIhg0MWGaB-gm50dl7jRwV5yySN4BrbC5gV__TInrPwDXvQnfSpha1rlGYwEm4MqYNEuHG1SBveh28iHKqSkgb1XwBc4ApuKeoYAuItN45Ez5uNw8aIsAzA5YYNm26iQDnZ1Va30Rv9PhebssOBoX18Rom8LEFOhNFlgvVnt9TF_BDUbEBFEOFPlwCneUSiVwP8x-QHy4SyZdEbXMrSP-GtidwbuMUkw40EmS1BpjNyyZFIc4ll4BLcB8");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-charcoal dark:text-white text-base font-bold leading-none">James Miller</p>
+<p class="text-primary text-sm font-bold mt-1 tracking-tight italic">Choosing share...</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="flex size-6 items-center justify-center rounded-full bg-gray-100 dark:bg-zinc-800 text-mocha">
+<span class="material-symbols-outlined text-sm">hourglass_empty</span>
+</div>
+</div>
+</div>
+<!-- Waiting Item -->
+<div class="flex items-center gap-4 bg-dashed border-2 border-dashed border-gray-100 dark:border-zinc-800 px-4 min-h-[72px] py-3 justify-between rounded-xl">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-full h-12 w-12 bg-gray-50 dark:bg-zinc-800">
+<span class="material-symbols-outlined text-gray-300">person_add</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-mocha dark:text-zinc-500 text-sm font-bold">Waiting for others...</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Interaction Area -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white dark:bg-background-dark p-4 shadow-[0_-10px_40px_rgba(0,0,0,0.08)] border-t border-gray-100 dark:border-zinc-800">
+<!-- Split Method Toggle -->
+<div class="flex bg-gray-100 dark:bg-zinc-800 p-1 rounded-xl mb-4">
+<button class="flex-1 py-2 text-sm font-bold rounded-lg bg-white dark:bg-zinc-700 shadow-sm text-charcoal dark:text-white">Amount ($)</button>
+<button class="flex-1 py-2 text-sm font-bold rounded-lg text-mocha dark:text-zinc-400">Percentage (%)</button>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-2">
+<span class="text-charcoal dark:text-white font-bold text-sm">Your Remaining:</span>
+<span class="text-primary font-black text-xl">$135.03</span>
+</div>
+<button class="w-full bg-primary hover:bg-orange-600 text-white font-black py-4 rounded-xl shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2">
+<span>PAY MY SHARE</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Stripe Integration -->
+<div class="flex items-center justify-center gap-2 pt-2 opacity-60">
+<span class="text-[10px] font-bold text-mocha dark:text-zinc-400 uppercase tracking-widest">Secured by</span>
+<svg class="h-4" fill="currentColor" viewbox="0 0 40 16" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.21 7.22c0-1.14.93-1.63 2.5-1.63 1.14 0 2.22.25 2.92.57V3.53c-.7-.3-1.84-.53-3.1-.53-2.92 0-4.94 1.5-4.94 4.09 0 3.79 5.2 3.17 5.2 4.8 0 1.25-1.05 1.77-2.67 1.77-1.35 0-2.63-.37-3.32-.78v2.76c.8.37 2.14.68 3.51.68 3.1 0 5.22-1.5 5.22-4.14 0-4-5.32-3.3-5.32-4.96zM15.42 5.03c-1.11 0-1.8.54-2.18 1.13V3.19h-2.62v12.44h2.73v-7.3c0-1.07.78-1.85 1.83-1.85.22 0 .4.02.58.06V3.3a3.56 3.56 0 00-.34-.02c-.85-.14-1.33.04-1.7.53l.36 1.22zM20.2 3.19h-2.73v12.44h2.73V3.19zM20.2 1.34h-2.73v1.85h2.73V1.34zM26.4 7.64c0-1.05-.72-1.73-1.72-1.73-1 0-1.72.68-1.72 1.73v4.6c0 1.05.72 1.73 1.72 1.73 1 0 1.72-.68 1.72-1.73v-4.6zm2.73 0c0-2.5-1.83-4.18-4.45-4.18-2.62 0-4.45 1.68-4.45 4.18v4.6c0 2.5 1.83 4.18 4.45 4.18 2.62 0 4.45-1.68 4.45-4.18v-4.6zM34.2 7.64c0-1.05-.72-1.73-1.72-1.73-1 0-1.72.68-1.72 1.73v4.6c0 1.05.72 1.73 1.72 1.73 1 0 1.72-.68 1.72-1.73v-4.6zm2.73 0c0-2.5-1.83-4.18-4.45-4.18-2.62 0-4.45 1.68-4.45 4.18v4.6c0 2.5 1.83 4.18 4.45 4.18 2.62 0 4.45-1.68 4.45-4.18v-4.6z"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</body></html>

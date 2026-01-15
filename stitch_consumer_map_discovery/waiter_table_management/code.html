@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Waiter Table Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#1a1a1a",
+                        "status-occupied": "#e65c00",
+                        "status-payment": "#7A4C30",
+                        "status-clean": "#6D9773",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display text-[#181410] dark:text-white">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">restaurant</span>
+</div>
+<div>
+<h2 class="text-lg font-extrabold leading-tight tracking-tight">Floor Management</h2>
+<p class="text-xs font-medium text-[#8d715e] dark:text-stone-400">12/20 Tables Active</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="size-11 flex items-center justify-center rounded-full bg-white dark:bg-stone-800 shadow-sm border border-stone-200 dark:border-stone-700">
+<span class="material-symbols-outlined text-lg">sync</span>
+</button>
+<button class="size-11 flex items-center justify-center rounded-full bg-white dark:bg-stone-800 shadow-sm border border-stone-200 dark:border-stone-700">
+<span class="material-symbols-outlined text-lg">notifications</span>
+</button>
+</div>
+</div>
+<!-- Section Tabs -->
+<div class="px-4 mt-2">
+<div class="flex border-b border-stone-200 dark:border-stone-800 gap-6">
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-primary pb-3 pt-2" href="#">
+<p class="text-sm font-bold">Main Hall</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-stone-500 dark:text-stone-400 pb-3 pt-2" href="#">
+<p class="text-sm font-bold">Patio</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-stone-500 dark:text-stone-400 pb-3 pt-2" href="#">
+<p class="text-sm font-bold">Bar Lounge</p>
+</a>
+</div>
+</div>
+</header>
+<main class="pb-32">
+<!-- Legend / Filters -->
+<div class="flex gap-3 p-4 overflow-x-auto no-scrollbar">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 px-4 shadow-sm">
+<div class="w-2 h-2 rounded-full bg-stone-300"></div>
+<p class="text-xs font-bold">Available</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-status-occupied/10 border border-status-occupied/20 px-4 shadow-sm">
+<div class="w-2 h-2 rounded-full bg-status-occupied"></div>
+<p class="text-xs font-bold text-status-occupied">Occupied</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-status-payment/10 border border-status-payment/20 px-4 shadow-sm">
+<div class="w-2 h-2 rounded-full bg-status-payment"></div>
+<p class="text-xs font-bold text-status-payment">Payment</p>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-status-clean/10 border border-status-clean/20 px-4 shadow-sm">
+<div class="w-2 h-2 rounded-full bg-status-clean"></div>
+<p class="text-xs font-bold text-status-clean">To Clean</p>
+</div>
+</div>
+<!-- Table Grid -->
+<div class="grid grid-cols-2 gap-4 p-4">
+<!-- Table Card: Occupied -->
+<div class="bg-white dark:bg-stone-800 rounded-xl p-4 shadow-md border-l-4 border-status-occupied flex flex-col gap-3 relative overflow-hidden group active:scale-95 transition-transform">
+<div class="flex justify-between items-start">
+<span class="text-2xl font-black tracking-tight">T-01</span>
+<div class="flex items-center gap-1 text-[10px] font-bold bg-status-occupied text-white px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px]">timer</span> 42m
+                    </div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="text-xs font-bold uppercase tracking-wider">4/4 Covers</span>
+</div>
+<p class="text-sm font-bold text-status-occupied">Main Course</p>
+</div>
+<div class="absolute -right-2 -bottom-2 opacity-10">
+<span class="material-symbols-outlined text-6xl">restaurant</span>
+</div>
+</div>
+<!-- Table Card: Payment -->
+<div class="bg-white dark:bg-stone-800 rounded-xl p-4 shadow-md border-l-4 border-status-payment flex flex-col gap-3 active:scale-95 transition-transform">
+<div class="flex justify-between items-start">
+<span class="text-2xl font-black tracking-tight">T-02</span>
+<div class="flex items-center gap-1 text-[10px] font-bold bg-status-payment text-white px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px]">payments</span> $124.50
+                    </div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="text-xs font-bold uppercase tracking-wider">2/2 Covers</span>
+</div>
+<p class="text-sm font-bold text-status-payment">Bill Requested</p>
+</div>
+</div>
+<!-- Table Card: Available -->
+<div class="bg-white dark:bg-stone-800 rounded-xl p-4 shadow-sm border border-stone-200 dark:border-stone-700 flex flex-col gap-3 opacity-60 active:scale-95 transition-transform">
+<div class="flex justify-between items-start">
+<span class="text-2xl font-black tracking-tight">T-03</span>
+<span class="text-[10px] font-bold bg-stone-100 dark:bg-stone-700 text-stone-600 dark:text-stone-300 px-2 py-0.5 rounded-full uppercase">Empty</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="text-xs font-bold uppercase tracking-wider">Max 6</span>
+</div>
+<p class="text-sm font-bold text-stone-400">Ready for Seating</p>
+</div>
+</div>
+<!-- Table Card: Cleaning -->
+<div class="bg-white dark:bg-stone-800 rounded-xl p-4 shadow-md border-l-4 border-status-clean flex flex-col gap-3 active:scale-95 transition-transform">
+<div class="flex justify-between items-start">
+<span class="text-2xl font-black tracking-tight">T-04</span>
+<div class="animate-pulse flex items-center gap-1 text-[10px] font-bold bg-status-clean text-white px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px]">cleaning_services</span> Priority
+                    </div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="text-xs font-bold uppercase tracking-wider">0/4 Covers</span>
+</div>
+<p class="text-sm font-bold text-status-clean">Bussing Table</p>
+</div>
+</div>
+<!-- Table Card: Occupied -->
+<div class="bg-white dark:bg-stone-800 rounded-xl p-4 shadow-md border-l-4 border-status-occupied flex flex-col gap-3 active:scale-95 transition-transform">
+<div class="flex justify-between items-start">
+<span class="text-2xl font-black tracking-tight">T-05</span>
+<div class="flex items-center gap-1 text-[10px] font-bold bg-status-occupied text-white px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px]">timer</span> 1h 15m
+                    </div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="text-xs font-bold uppercase tracking-wider">2/2 Covers</span>
+</div>
+<p class="text-sm font-bold text-status-occupied">Dessert</p>
+</div>
+</div>
+<!-- Table Card: Occupied (Warning) -->
+<div class="bg-white dark:bg-stone-800 rounded-xl p-4 shadow-md border-l-4 border-red-500 flex flex-col gap-3 active:scale-95 transition-transform">
+<div class="flex justify-between items-start">
+<span class="text-2xl font-black tracking-tight">T-06</span>
+<div class="flex items-center gap-1 text-[10px] font-bold bg-red-500 text-white px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[12px]">priority_high</span> 15m Lag
+                    </div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="text-xs font-bold uppercase tracking-wider">5/6 Covers</span>
+</div>
+<p class="text-sm font-bold text-red-500">Wait for Drinks</p>
+</div>
+</div>
+</div>
+<!-- Visual Floor Plan Indicator -->
+<div class="px-4 mt-6">
+<div class="bg-white dark:bg-stone-800 rounded-2xl p-6 shadow-sm border border-stone-200 dark:border-stone-700">
+<h3 class="font-extrabold text-sm mb-4 uppercase tracking-widest text-stone-400">Section Overview</h3>
+<div class="flex items-center justify-between gap-2 h-24">
+<div class="flex-1 h-full bg-stone-100 dark:bg-stone-700/50 rounded-lg flex items-center justify-center border-2 border-dashed border-stone-300 dark:border-stone-600">
+<span class="text-[10px] font-bold uppercase text-stone-400">Entrance Area</span>
+</div>
+<div class="flex-1 h-full bg-primary/5 rounded-lg border-2 border-primary/20 flex flex-col items-center justify-center">
+<span class="text-xs font-black text-primary">ZONE A</span>
+<span class="text-[10px] font-bold text-primary/60">6 Active</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Sheet / Table Actions (Simulated Open) -->
+<div class="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] pointer-events-none opacity-0 transition-opacity"></div>
+<div class="fixed bottom-0 left-0 right-0 z-50 transform translate-y-0 bg-white dark:bg-stone-900 rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.12)] ring-1 ring-black/5">
+<div class="flex h-1.5 w-full items-center justify-center py-4">
+<div class="h-1.5 w-12 rounded-full bg-stone-200 dark:bg-stone-700"></div>
+</div>
+<div class="px-6 pb-10">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h4 class="text-2xl font-black tracking-tight">Table T-01</h4>
+<p class="text-stone-500 dark:text-stone-400 text-sm font-medium">Occupied • 4 Guests • Session 42m</p>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold uppercase text-stone-400 mb-1">Current Total</p>
+<p class="text-xl font-black text-primary">$84.20</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 h-24 bg-primary text-white rounded-2xl shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl">add_shopping_cart</span>
+<span class="text-sm font-extrabold">New Order</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 h-24 bg-stone-100 dark:bg-stone-800 text-[#181410] dark:text-white rounded-2xl">
+<span class="material-symbols-outlined text-3xl">receipt_long</span>
+<span class="text-sm font-extrabold">View Bill</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 h-24 bg-stone-100 dark:bg-stone-800 text-[#181410] dark:text-white rounded-2xl">
+<span class="material-symbols-outlined text-3xl">credit_card</span>
+<span class="text-sm font-extrabold">Payment</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 h-24 bg-stone-100 dark:bg-stone-800 text-[#181410] dark:text-white rounded-2xl">
+<span class="material-symbols-outlined text-3xl">shuffle</span>
+<span class="text-sm font-extrabold">Split Table</span>
+</button>
+</div>
+<button class="w-full mt-4 py-4 text-stone-400 dark:text-stone-500 font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">close</span> Close Menu
+            </button>
+</div>
+</div>
+<!-- Quick Tool Bar (Floating) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-[#181410] dark:bg-stone-700 px-4 py-2 rounded-full shadow-2xl border border-white/10 hidden">
+<button class="p-2 text-white">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="w-px h-6 bg-white/20"></div>
+<button class="p-2 text-white">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="w-px h-6 bg-white/20"></div>
+<button class="p-2 text-white">
+<span class="material-symbols-outlined">person_add</span>
+</button>
+</div>
+</body></html>

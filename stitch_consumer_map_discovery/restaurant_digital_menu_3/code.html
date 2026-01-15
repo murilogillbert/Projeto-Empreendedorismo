@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bill Details &amp; Split Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#1a1a1a",
+                        "mocha": "#7A4C30",
+                        "charcoal": "#2C2C2C",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body { min-height: max(884px, 100dvh); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-gray-100 antialiased overflow-x-hidden">
+<div class="sticky top-0 z-50 flex items-center bg-white dark:bg-zinc-900 px-4 py-4 justify-between border-b border-gray-100 dark:border-zinc-800">
+<div class="flex items-center gap-3">
+<button class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-zinc-800">
+<span class="material-symbols-outlined text-charcoal dark:text-white">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Bill Details</h1>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Table</p>
+<p class="text-sm font-bold text-mocha dark:text-primary">#14</p>
+</div>
+</div>
+<div class="p-4 pb-40 space-y-6">
+<div class="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-zinc-800 text-center">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium mb-1">Total Table Amount</p>
+<h2 class="text-4xl font-extrabold text-charcoal dark:text-white">$142.50</h2>
+<div class="mt-4 inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-900/20 px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-amber-600 text-sm">schedule</span>
+<p class="text-amber-700 dark:text-amber-400 text-[11px] font-bold">15-minute rule for split modification</p>
+</div>
+</div>
+<div class="space-y-3">
+<p class="text-xs font-bold text-gray-400 uppercase tracking-widest px-1">Choose how to pay</p>
+<div class="grid grid-cols-1 gap-3">
+<label class="relative flex items-center p-4 bg-white dark:bg-zinc-900 rounded-2xl border-2 border-primary shadow-sm cursor-pointer">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+<p class="text-base font-bold">Pay My Items</p>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">2 items selected: Wagyu Burger, Soda</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-extrabold text-primary">$34.50</p>
+<div class="size-5 rounded-full border-4 border-primary bg-white flex items-center justify-center ml-auto mt-1">
+<div class="size-2 rounded-full bg-primary"></div>
+</div>
+</div>
+</label>
+<label class="relative flex items-center p-4 bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm cursor-pointer">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-mocha">groups</span>
+<p class="text-base font-bold">Split Equally</p>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Divide total by 4 participants</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold text-charcoal dark:text-white">$35.62</p>
+<div class="size-5 rounded-full border border-gray-300 dark:border-zinc-700 ml-auto mt-1"></div>
+</div>
+</label>
+<label class="relative flex items-center p-4 bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm cursor-pointer">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-500">edit_note</span>
+<p class="text-base font-bold">Pay Custom Amount</p>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Enter any amount to contribute</p>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold text-gray-400">--</p>
+<div class="size-5 rounded-full border border-gray-300 dark:border-zinc-700 ml-auto mt-1"></div>
+</div>
+</label>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center px-1">
+<p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Participants (4)</p>
+<p class="text-xs font-bold text-mocha">Active Table</p>
+</div>
+<div class="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-zinc-800">
+<div class="flex items-center justify-between p-4 border-b border-gray-50 dark:border-zinc-800">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-orange-100 flex items-center justify-center text-primary font-bold text-sm">ME</div>
+<div>
+<p class="text-sm font-bold">You</p>
+<p class="text-[10px] text-primary font-medium">Selecting items...</p>
+</div>
+</div>
+<p class="text-sm font-bold">$34.50</p>
+</div>
+<div class="flex items-center justify-between p-4 border-b border-gray-50 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-800/20">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">JD</div>
+<div>
+<p class="text-sm font-bold">John Doe</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-green-500" style="font-variation-settings: 'FILL' 1">check_circle</span>
+<p class="text-[10px] text-green-600 font-bold">Paid</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<img alt="Visa" class="h-2 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAqDCTLM_JUhSMYBLzlLZhttNFpbtOtYDrLvd9ul8OZ0L972PZu-41qtNCwC49zCPftF4djc92GcuExmw0XPsLp587y6Xr8PCrG6NSrXojdZ5eWN8Yc3wNVGuKLZcBXhMR6Qn2CmPhxj8x4ydp07tVdZcGawLP3uG7ciKefdXKTE1sIgWBNrCT7xCxIRVI_q9dLzbUBt_Qswky8bvl4f6GOEWtKn3LwMz0ok6UnSKnIQkGkR37brtuhZWr7vpqtmIj2U6KucS-w8rp"/>
+<p class="text-sm font-bold text-gray-400">$45.00</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 border-b border-gray-50 dark:border-zinc-800">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">SK</div>
+<div>
+<p class="text-sm font-bold">Sarah King</p>
+<p class="text-[10px] text-gray-400 font-medium">Ready to pay</p>
+</div>
+</div>
+<p class="text-sm font-bold">$31.00</p>
+</div>
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 font-bold text-sm">MA</div>
+<div>
+<p class="text-sm font-bold">Mike Adams</p>
+<p class="text-[10px] text-gray-400 font-medium">Pending</p>
+</div>
+</div>
+<p class="text-sm font-bold">$32.00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-zinc-800 p-4 pb-8 z-50">
+<div class="flex items-center justify-center gap-4 mb-4 opacity-40 grayscale">
+<img alt="Stripe" class="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5uqYqgdGBVJpHYMxPKn02C1sf_ra03i8Vz9DQ1usJ0C1C8ooo16n1Avm2-imjParfq-aaUm69o_kVUsEOzBY_cPy-vWNWcdraHP8fDJf8sI5Q31trS2hudBxQxvPQX5JrU-w8YZ4bXpQDsYnFAICNRpjQCgIfBaipkMEtbkGGWw4Z3rckM5pbBb6rFF2T59R5J6yz1443FFZC3ewmeFqrir47ouJCxWi2FX5UkLurtcthHz4noGzK30GhGkn_xLW1g1rHWJPKIOMk"/>
+<img alt="Visa" class="h-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7PBOs25ARCO54GX205f4bZ_qJwwPXtgGX3sDBMyCzGdVdMSa1Kxb-1pKUcfVvpc0PF9oI9sQ7dgMRUeYIpWSjVSdjYCFHeaYqHq1PkTyG1qpuBpOBuDolCHoFaOZlEnG935vC7yaa6Hx_UT0K7NSE-bgr3aQKBKxpl9J27uSe2EYah5qAMk5xOHsCL38e1LkOQlPK_utQwk90bvMOmBVEyp8Y8tDoTO-xTzAXmiX-L6-N0woVEvNZJG3nwcdJ6kHyK9dAnTzv3WLM"/>
+<img alt="Mastercard" class="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApL7lfdtzrnpRqMCfA0zy_ZuyWOra06OuExBD_Ptj8BUKMLe9cSlYG9tIG9in2bc4gLBuVCUh81x0A-6FZ5ZigbfOiftneqaddi7Sf2IsOF2XgwxNZ6lv_1i9903LVckxm80Mt7194cL9G4fOyfzzcDOFkK7Vt8Z9g3ckId6DP6Ab_jQUlRBNyc37rq-S7c8oVRn1_zJpJdu828-peydovWrlQNo1GAQj2koc45ivuuiF9Ly0ctWcYy6-9WDzsvbBQbvjDS04sQ2y3"/>
+<img alt="Paypal" class="h-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfnKdg61ZyikNcdpCYccFMV_D3eiFJfr-Cm058FIxxyL5z5ZhPZArsT0u24_UZ6cOgPckCJA6iGAfAoeT-p6WPq25S7FjLNjcFulMVyhH0vLKB9_KNE-mxv-wbMBKBmfG9U4ZY4yrAM18e7GLo_OD9gpD0nrXFkeAz6hcgW4Jjcrb4GhOEnyNELyAcvVs-vYmD8Bzn-SoDw5xP07LPhQiygbOH_XSfBTqFOCTwQpRLM4jYNcayc8BpG4czPLIP-_08EUswVg4hRNHL"/>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-orange-600 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-primary/30 flex items-center justify-center gap-2 transition-all active:scale-95">
+<span>Confirm Payment • $34.50</span>
+<span class="material-symbols-outlined">payments</span>
+</button>
+<p class="text-center text-[10px] text-gray-400 px-8">
+            By clicking confirm, you agree to the bill split terms. Your payment will be processed securely via Stripe.
+        </p>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 h-[60px] bg-white/95 dark:bg-zinc-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-zinc-800 px-6 flex justify-between items-center z-40 opacity-0 pointer-events-none">
+</div>
+
+</body></html>

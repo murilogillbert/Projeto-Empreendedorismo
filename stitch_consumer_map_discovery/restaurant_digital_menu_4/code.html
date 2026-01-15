@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Table Reservation Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#1a1a1a",
+                        "mocha": "#7A4C30",
+                        "charcoal": "#2C2C2C",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body { min-height: 100dvh; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-gray-100 antialiased overflow-x-hidden">
+<div class="sticky top-0 z-50 flex items-center bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md px-4 py-4 justify-between border-b border-gray-100 dark:border-zinc-800">
+<div class="flex items-center gap-3">
+<button class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-zinc-800">
+<span class="material-symbols-outlined text-charcoal dark:text-white">arrow_back_ios_new</span>
+</button>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Reserve a Table</h1>
+<p class="text-xs text-mocha dark:text-primary font-medium">The Gourmet Kitchen</p>
+</div>
+</div>
+<button class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-zinc-800">
+<span class="material-symbols-outlined text-charcoal dark:text-white">help_outline</span>
+</button>
+</div>
+<div class="p-4 pb-40 space-y-6">
+<section>
+<h2 class="text-base font-bold mb-3 px-1">Seating Preference</h2>
+<div class="grid grid-cols-2 gap-3">
+<label class="relative flex flex-col items-center justify-center p-4 bg-white dark:bg-zinc-900 border-2 border-primary rounded-2xl shadow-sm cursor-pointer ring-4 ring-primary/5">
+<input checked="" class="hidden" name="seating" type="radio"/>
+<span class="material-symbols-outlined text-primary mb-2 text-3xl" style="font-variation-settings: 'FILL' 1">chair_alt</span>
+<span class="font-bold text-sm">Indoor</span>
+<span class="text-[10px] text-gray-500">AC / Lounge</span>
+<div class="absolute top-2 right-2">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+</div>
+</label>
+<label class="relative flex flex-col items-center justify-center p-4 bg-white dark:bg-zinc-900 border-2 border-transparent rounded-2xl shadow-sm cursor-pointer hover:border-gray-200">
+<input class="hidden" name="seating" type="radio"/>
+<span class="material-symbols-outlined text-mocha mb-2 text-3xl">nature_people</span>
+<span class="font-bold text-sm">Outdoor</span>
+<span class="text-[10px] text-gray-500">Patio / Garden</span>
+</label>
+</div>
+</section>
+<section class="space-y-4">
+<div class="bg-white dark:bg-zinc-900 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-zinc-800">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<h2 class="text-sm font-bold uppercase tracking-wider text-gray-400">Date &amp; Time</h2>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<div class="flex flex-col items-center justify-center min-w-[60px] py-3 rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
+<span class="text-[10px] uppercase font-bold">May</span>
+<span class="text-lg font-black leading-none">24</span>
+<span class="text-[10px] font-medium mt-1">Fri</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[60px] py-3 rounded-xl bg-background-light dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700">
+<span class="text-[10px] uppercase font-bold text-gray-400">May</span>
+<span class="text-lg font-black leading-none">25</span>
+<span class="text-[10px] font-medium mt-1">Sat</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[60px] py-3 rounded-xl bg-background-light dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700">
+<span class="text-[10px] uppercase font-bold text-gray-400">May</span>
+<span class="text-lg font-black leading-none">26</span>
+<span class="text-[10px] font-medium mt-1">Sun</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[60px] py-3 rounded-xl bg-background-light dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700">
+<span class="text-[10px] uppercase font-bold text-gray-400">May</span>
+<span class="text-lg font-black leading-none">27</span>
+<span class="text-[10px] font-medium mt-1">Mon</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4">
+<button class="py-2 text-sm font-bold border border-gray-200 dark:border-zinc-700 rounded-lg bg-background-light dark:bg-zinc-800">18:00</button>
+<button class="py-2 text-sm font-bold border border-primary bg-primary/5 text-primary rounded-lg">19:30</button>
+<button class="py-2 text-sm font-bold border border-gray-200 dark:border-zinc-700 rounded-lg bg-background-light dark:bg-zinc-800">20:00</button>
+<button class="py-2 text-sm font-bold border border-gray-200 dark:border-zinc-700 rounded-lg bg-background-light dark:bg-zinc-800">21:00</button>
+<button class="py-2 text-sm font-bold border border-gray-200 dark:border-zinc-700 rounded-lg bg-background-light dark:bg-zinc-800">21:30</button>
+<button class="py-2 text-sm font-bold border border-gray-200 dark:border-zinc-700 rounded-lg bg-background-light dark:bg-zinc-800">22:00</button>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-3 px-1">
+<h2 class="text-base font-bold">Pre-order Items</h2>
+<button class="text-primary text-xs font-bold flex items-center gap-1">
+                    See Menu <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-3">
+<div class="flex gap-4 bg-white dark:bg-zinc-900 p-3 rounded-2xl shadow-sm border border-gray-100 dark:border-zinc-800">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl size-16 shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDDk7EjZRrZIdgXqOkXI8rdzxNquQGu3vvsFo9ZJOB6PzDJOPFutDZJaMEu27mU-yM-W5b1R15SXR8lxYbtDMELf4XIWh4RZQwGeTHts_AAchACMx17urEAZPQUSsXsRNKAi3HoabtQgVZVMNEp6U8n7Bjef8A-33J4YPL-kZxlbz1nMwbky7qUx6PL24VM3Apm3CDY2iK7I3OvqvImXRXiFIE4-CrpCTcq4zFVf9sFtZl06NkCEqns15opkezSPwNoM9LQ5Hf5WLh");'></div>
+<div class="flex flex-1 flex-col justify-between">
+<div>
+<p class="text-charcoal dark:text-white text-sm font-bold">Truffle Parmesan Fries</p>
+<p class="text-primary text-sm font-bold">$14.00</p>
+</div>
+</div>
+<button class="self-center size-8 flex items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="flex gap-4 bg-white dark:bg-zinc-900 p-3 rounded-2xl shadow-sm border border-gray-100 dark:border-zinc-800">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-xl size-16 shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLAk2X6Y_LGQdCkzkrvu_kpud0XhHdKGWkKf_Fzc05CVPqDSqKV_FezMbaY4EWuUguC-DfRGWIYBc9sdRpcTHKItfotM8M8LyPZ68iY0D7bX28z2TyCTUZ38tLZ2fbJ7mq39SWpzoLNbGo5R6lhI8dCmP1XHFVDkYDlxqdrrpGoksydRbeHaOzaIZgGLwVEfbHg-vAlKgtIdMjd4YU9ArjGBnQPndRy-SnkMd0l3wCvNCkakHh9ACizUkeTx4fNoke45LkyxDvo1Ui");'></div>
+<div class="flex flex-1 flex-col justify-between">
+<div>
+<p class="text-charcoal dark:text-white text-sm font-bold">Wagyu Burger</p>
+<p class="text-primary text-sm font-bold">$24.00</p>
+</div>
+</div>
+<button class="self-center size-8 flex items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</section>
+<section class="bg-mocha/5 dark:bg-zinc-800/50 p-4 rounded-2xl border border-mocha/10">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-mocha text-xl">info</span>
+<div class="space-y-2">
+<p class="text-xs font-bold text-mocha">Reservation Policy</p>
+<ul class="text-[11px] space-y-1 text-mocha/80 leading-relaxed list-disc pl-4">
+<li>A <b>$25.00 reservation fee</b> applies (deductible from final bill).</li>
+<li><b>2-hour cancellation policy:</b> Free cancellation up to 2 hours before the booking time.</li>
+<li>Late arrivals over 15 minutes may result in seat forfeiture.</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-lg border-t border-gray-100 dark:border-zinc-800 p-4 pb-8 z-50">
+<div class="max-w-md mx-auto flex flex-col gap-3">
+<div class="flex justify-between items-center px-1">
+<span class="text-xs text-gray-400 font-medium">Due now (Reservation Fee)</span>
+<span class="text-lg font-black text-charcoal dark:text-white">$25.00</span>
+</div>
+<button class="w-full bg-primary hover:bg-orange-600 transition-colors py-4 rounded-2xl text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+                Confirm Reservation
+                <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+
+</body></html>

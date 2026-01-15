@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Digital Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#1a1a1a",
+                        "mocha": "#7A4C30",
+                        "charcoal": "#2C2C2C",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .sticky-nav { position: sticky; top: 0; z-index: 40; }
+        body {
+            min-height: 100dvh;
+            padding-bottom: calc(80px + 70px);}
+        .safe-area-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-gray-100 antialiased overflow-x-hidden">
+<div class="flex items-center bg-white dark:bg-zinc-900 px-4 py-4 justify-between border-b border-gray-100 dark:border-zinc-800 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-zinc-800">
+<span class="material-symbols-outlined text-charcoal dark:text-white">arrow_back</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight">The Gourmet Kitchen</h1>
+<p class="text-xs text-mocha dark:text-primary font-medium">Fine Dining • 4.9 ★</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="bg-mocha text-white text-[11px] font-bold px-4 py-2 rounded-full shadow-sm flex items-center gap-1.5 uppercase tracking-wide">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+            Book
+        </button>
+<button class="size-10 flex items-center justify-center rounded-full bg-background-light dark:bg-zinc-800">
+<span class="material-symbols-outlined text-charcoal dark:text-white">info</span>
+</button>
+</div>
+</div>
+<div class="p-4">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden rounded-xl min-h-[180px] shadow-sm relative" data-alt="Interior of a luxury modern restaurant with warm lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAaz6BoDpigbw_GodhVA7ughUEOuA23Qcqxh9rgpWyvAFlx7RpzIDrkaCCDcIwJAF2bai2lEBqQzstFAJQFrLuLK2Wv3HUHzQplTRII4swkzFuP4RFK4bUg55FIgk_3d3VY7SqsFwUHJVz4b6pjHZF6FbF4sklB1lOR0KIF8Ymyk9ka-IAfKxfa638XnonNYqP2ah3_tVZzBNK0oaIStqzU0V2C9KZY2CD1RFOmxmXSaPF8il_z82UPB7i9xn9m7N5oHrMjAupIujI");'>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="relative p-4">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-widest">Seasonal Menu</span>
+<p class="text-white text-sm mt-1 opacity-90">Experience the craft of artisanal cuisine.</p>
+</div>
+</div>
+</div>
+<div class="sticky-nav bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md py-2 px-4 flex gap-3 overflow-x-auto no-scrollbar border-b border-gray-200 dark:border-zinc-800">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-6 shadow-md shadow-primary/20">
+<p class="text-white text-sm font-bold">Appetizers</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-zinc-800 px-6 border border-gray-200 dark:border-zinc-700">
+<p class="text-charcoal dark:text-gray-300 text-sm font-medium">Mains</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-zinc-800 px-6 border border-gray-200 dark:border-zinc-700">
+<p class="text-charcoal dark:text-gray-300 text-sm font-medium">Drinks</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-zinc-800 px-6 border border-gray-200 dark:border-zinc-700">
+<p class="text-charcoal dark:text-gray-300 text-sm font-medium">Desserts</p>
+</div>
+</div>
+<div class="pb-10">
+<div class="flex items-center justify-between px-4 pt-6 pb-2">
+<h2 class="text-xl font-extrabold tracking-tight">Appetizers</h2>
+<span class="text-mocha dark:text-primary text-xs font-bold uppercase tracking-widest">Small Plates</span>
+</div>
+<div class="space-y-3 px-4">
+<div class="flex gap-4 bg-white dark:bg-zinc-900 p-3 rounded-xl shadow-sm border border-gray-100 dark:border-zinc-800">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[100px] shrink-0" data-alt="Gourmet truffle parmesan fries served in a metal basket" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDDk7EjZRrZIdgXqOkXI8rdzxNquQGu3vvsFo9ZJOB6PzDJOPFutDZJaMEu27mU-yM-W5b1R15SXR8lxYbtDMELf4XIWh4RZQwGeTHts_AAchACMx17urEAZPQUSsXsRNKAi3HoabtQgVZVMNEp6U8n7Bjef8A-33J4YPL-kZxlbz1nMwbky7qUx6PL24VM3Apm3CDY2iK7I3OvqvImXRXiFIE4-CrpCTcq4zFVf9sFtZl06NkCEqns15opkezSPwNoM9LQ5Hf5WLh");'></div>
+<div class="flex flex-1 flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<p class="text-charcoal dark:text-white text-base font-bold leading-tight">Truffle Parmesan Fries</p>
+<p class="text-primary text-base font-bold">$14.00</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1 line-clamp-2">Hand-cut potatoes, truffle oil, aged parmesan, fresh parsley.</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex gap-1">
+<span class="text-[10px] px-2 py-0.5 rounded-full border border-mocha/30 text-mocha dark:text-mocha dark:border-mocha/50 font-medium">Dairy</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full border border-mocha/30 text-mocha dark:text-mocha dark:border-mocha/50 font-medium">Gluten</span>
+</div>
+<button class="size-8 flex items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex gap-4 bg-white dark:bg-zinc-900 p-3 rounded-xl shadow-sm border border-gray-100 dark:border-zinc-800">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[100px] shrink-0" data-alt="Tomato and basil bruschetta on toasted baguette" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEg8gEGlufxPmKbD8Zh7p4RgLOWDjtSHBKbCVx-okk8z5vSrjH4B7BbUARQoS47iMhi_gp67lzeMWo1i4FaWHugOVl6KtzxfLGU2sZoCGTVVZ6O1Agt5n97lZfpqXDhb42upSonKGG_lQSMsGzAVdLZfO25zqUfpKU5NNg07SiXnLl9EQhmTiiDCoeEGIyW4CZ-aHB529kzxo6Rgc9X_Gu-3DINZVamxrIH2E0prD4p-hdO0KODb1V2cPrlDQj19AUSR3ZA6Z_Lm_Q");'></div>
+<div class="flex flex-1 flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<p class="text-charcoal dark:text-white text-base font-bold leading-tight">Artisan Bruschetta</p>
+<p class="text-primary text-base font-bold">$12.50</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs mt-1 line-clamp-2">Heirloom tomatoes, balsamic glaze, fresh basil, sourdough.</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex gap-1">
+<span class="text-[10px] px-2 py-0.5 rounded-full border border-green-600/30 text-green-600 font-medium">Vegan</span>
+</div>
+<button class="size-8 flex items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-4 pt-10 pb-2">
+<h2 class="text-xl font-extrabold tracking-tight">Main Course</h2>
+<span class="text-mocha dark:text-primary text-xs font-bold uppercase tracking-widest">Signature Dishes</span>
+</div>
+<div class="space-y-3 px-4">
+<div class="flex flex-col bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-gray-100 dark:border-zinc-800 overflow-hidden">
+<div class="w-full h-40 bg-center bg-cover relative" data-alt="Juicy wagyu beef burger with caramelized onions" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLAk2X6Y_LGQdCkzkrvu_kpud0XhHdKGWkKf_Fzc05CVPqDSqKV_FezMbaY4EWuUguC-DfRGWIYBc9sdRpcTHKItfotM8M8LyPZ68iY0D7bX28z2TyCTUZ38tLZ2fbJ7mq39SWpzoLNbGo5R6lhI8dCmP1XHFVDkYDlxqdrrpGoksydRbeHaOzaIZgGLwVEfbHg-vAlKgtIdMjd4YU9ArjGBnQPndRy-SnkMd0l3wCvNCkakHh9ACizUkeTx4fNoke45LkyxDvo1Ui");'>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
+<p class="text-primary font-bold text-sm">$24.00</p>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-1">
+<p class="text-charcoal dark:text-white text-lg font-bold">Signature Wagyu Burger</p>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-mocha text-lg">star</span>
+<span class="material-symbols-outlined text-mocha text-lg">star</span>
+</div>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm mb-4">8oz Wagyu patty, aged cheddar, caramelized onion jam, brioche bun, secret aioli.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="text-[10px] px-2 py-1 bg-mocha/10 text-mocha rounded font-bold uppercase tracking-wide">Popular</span>
+<span class="text-[10px] px-2 py-1 bg-gray-100 dark:bg-zinc-800 text-gray-500 rounded font-bold uppercase tracking-wide">850 Cal</span>
+</div>
+<button class="flex items-center gap-2 px-6 py-2 rounded-full bg-primary text-white font-bold text-sm shadow-lg shadow-primary/30">
+<span>Add to Order</span>
+<span class="material-symbols-outlined text-sm">shopping_basket</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="fixed bottom-[150px] right-4 z-50 size-14 bg-mocha text-white rounded-full shadow-2xl flex items-center justify-center border-4 border-white dark:border-zinc-900">
+<span class="material-symbols-outlined">restaurant</span>
+</button>
+<div class="fixed bottom-24 left-4 right-4 z-50">
+<div class="bg-charcoal dark:bg-zinc-800 text-white rounded-2xl p-4 flex items-center justify-between shadow-2xl border border-white/10">
+<div class="flex items-center gap-3">
+<div class="relative size-10 bg-primary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined">shopping_cart</span>
+<div class="absolute -top-2 -right-2 size-5 bg-white text-primary text-[10px] font-black rounded-full flex items-center justify-center shadow-md">2</div>
+</div>
+<div>
+<p class="text-xs font-medium text-gray-400">2 Items added</p>
+<p class="text-sm font-bold">$38.00 <span class="text-[10px] font-normal text-gray-500 ml-1">+ taxes</span></p>
+</div>
+</div>
+<button class="bg-primary hover:bg-orange-600 transition-colors px-5 py-2 rounded-xl text-sm font-bold flex items-center gap-1">
+            View Cart
+            <span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-lg border-t border-gray-200 dark:border-zinc-800 px-6 py-3 pb-safe z-50 safe-area-bottom">
+<div class="flex justify-between items-center max-w-md mx-auto relative h-12">
+<div class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">home</span>
+<span class="text-[10px] font-bold text-primary">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 group opacity-40">
+<span class="material-symbols-outlined text-charcoal dark:text-white">receipt_long</span>
+<span class="text-[10px] font-medium text-charcoal dark:text-white">Orders</span>
+</div>
+<div class="flex flex-col items-center -mt-10">
+<div class="size-14 bg-mocha rounded-full flex items-center justify-center shadow-xl border-4 border-white dark:border-zinc-900">
+<span class="material-symbols-outlined text-white text-3xl">qr_code_scanner</span>
+</div>
+<span class="text-[10px] font-bold text-mocha mt-1">Scan</span>
+</div>
+<div class="flex flex-col items-center gap-1 group opacity-40">
+<span class="material-symbols-outlined text-charcoal dark:text-white">person</span>
+<span class="text-[10px] font-medium text-charcoal dark:text-white">Profile</span>
+</div>
+<div class="flex flex-col items-center gap-1 group opacity-40">
+<span class="material-symbols-outlined text-charcoal dark:text-white">more_horiz</span>
+<span class="text-[10px] font-medium text-charcoal dark:text-white">More</span>
+</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Consumer Map &amp; Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e65c00",
+                        "background-light": "#f5f5f5",
+                        "background-dark": "#1a1a1a",
+                        "mocha": "#7A4C30",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181410] dark:text-white antialiased">
+<div class="relative mx-auto flex h-screen max-w-[430px] flex-col overflow-hidden bg-white shadow-2xl">
+<!-- Header / Search Area -->
+<div class="absolute top-0 z-20 w-full px-4 pt-6 pb-2 pointer-events-none">
+<div class="flex flex-col gap-3 pointer-events-auto">
+<!-- Search Bar -->
+<div class="flex items-center gap-2">
+<div class="flex flex-1 items-center gap-3 h-12 rounded-xl bg-white shadow-lg border border-[#f5f2f0] px-4">
+<span class="material-symbols-outlined text-mocha">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm font-medium placeholder:text-gray-400" placeholder="Search for 'Pizza' or 'Sushi'..." type="text"/>
+</div>
+<button class="flex size-12 items-center justify-center rounded-xl bg-white shadow-lg border border-[#f5f2f0] text-mocha">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<!-- Chips/Categories -->
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+<button class="flex h-9 shrink-0 items-center justify-center gap-1 rounded-xl bg-primary text-white px-4 text-xs font-bold shadow-md">
+<span class="material-symbols-outlined text-[18px]">local_pizza</span>
+                        Italian
+                    </button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-1 rounded-xl bg-white text-mocha px-4 text-xs font-semibold border border-[#f5f2f0] shadow-sm">
+<span class="material-symbols-outlined text-[18px]">set_meal</span>
+                        Sushi
+                    </button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-1 rounded-xl bg-white text-mocha px-4 text-xs font-semibold border border-[#f5f2f0] shadow-sm">
+<span class="material-symbols-outlined text-[18px]">bakery_dining</span>
+                        Bakery
+                    </button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-1 rounded-xl bg-white text-mocha px-4 text-xs font-semibold border border-[#f5f2f0] shadow-sm">
+<span class="material-symbols-outlined text-[18px]">coffee</span>
+                        Coffee
+                    </button>
+</div>
+</div>
+</div>
+<!-- Main Content: Map -->
+<main class="relative flex-1 bg-[#e5e7eb]">
+<!-- Simulated Map Background -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Modern minimalist city map with light gray streets" data-location="San Francisco" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzgvwqYVyBkQtUrfIUmLjgAYMMlRTDPcviSP2WAx5bn1AR_KuZyg2C0v0GT2MLDNgAPB3YlXrxX37eE-L697rcqFhCHw9ka8TTjYqrRpOYBGAhkfsdwzOxsizUDR5eqqlZ48f3iAEZgbkxuh7NnMz2I6PRvGYBwiLbcySMNcZ8PMD0shOI4TWgwW3LwPxz3PDBKASBuvyq7-2RCmzCBinVRpOvd5PC-iL_DE1Y6qDHGZ844Y3nurUx1xslkFAm9Q1NtdiVASAsRNuY');">
+<!-- Map Overlay Tint -->
+<div class="absolute inset-0 bg-white/30 backdrop-grayscale-[0.2]"></div>
+<!-- Custom Map Pins -->
+<div class="absolute top-[35%] left-[40%]">
+<div class="relative flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary text-white shadow-xl ring-4 ring-white">
+<span class="material-symbols-outlined text-[20px]">restaurant</span>
+</div>
+<div class="h-2 w-0.5 bg-white shadow-sm"></div>
+</div>
+</div>
+<div class="absolute top-[55%] left-[65%]">
+<div class="relative flex flex-col items-center opacity-80 scale-90">
+<div class="flex size-10 items-center justify-center rounded-full bg-mocha text-white shadow-md ring-4 ring-white">
+<span class="material-symbols-outlined text-[20px]">local_cafe</span>
+</div>
+<div class="h-2 w-0.5 bg-white shadow-sm"></div>
+</div>
+</div>
+<div class="absolute top-[20%] left-[20%]">
+<div class="relative flex flex-col items-center opacity-80 scale-90">
+<div class="flex size-10 items-center justify-center rounded-full bg-mocha text-white shadow-md ring-4 ring-white">
+<span class="material-symbols-outlined text-[20px]">bakery_dining</span>
+</div>
+<div class="h-2 w-0.5 bg-white shadow-sm"></div>
+</div>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-4 top-[35%] flex flex-col gap-2">
+<button class="flex size-10 items-center justify-center rounded-lg bg-white shadow-lg text-mocha">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+<div class="flex flex-col rounded-lg bg-white shadow-lg">
+<button class="flex size-10 items-center justify-center border-b border-gray-100 text-mocha">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="flex size-10 items-center justify-center text-mocha">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+</div>
+<!-- Featured Card (Floating at bottom of map area) -->
+<div class="absolute bottom-24 left-0 w-full px-4">
+<div class="flex items-center gap-4 rounded-xl bg-white p-4 shadow-2xl border border-[#f5f2f0]">
+<div class="flex flex-[1.5] flex-col gap-3">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1">
+<span class="text-[10px] font-extrabold tracking-widest text-primary uppercase">Featured</span>
+<div class="h-1 w-1 rounded-full bg-primary/30"></div>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[14px] fill-1">star</span>
+<span class="text-[11px] font-bold">4.8 (120+)</span>
+</div>
+</div>
+<h3 class="text-base font-extrabold leading-tight text-[#181410]">The Artisan Hearth</h3>
+<p class="text-xs font-medium text-mocha/70">Authentic Italian • 0.4 miles away</p>
+</div>
+<button class="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2 px-4 text-white shadow-lg shadow-primary/20 transition-transform active:scale-95">
+<span class="text-xs font-bold">View Menu</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="h-28 w-28 shrink-0 overflow-hidden rounded-lg bg-gray-100">
+<div class="h-full w-full bg-cover bg-center" data-alt="Gourmet wood-fired pizza with fresh basil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsnBJqli6N8I332KQIMooCB5_06xTJvdffATCDbSqT5RSBNoBFWcEGIS5aZG1kXsp9NfmUlr94Pg9Bt0dRANel2bXucNe56Ka5KpobjdjTXfv9RQfzLTOHtsdljzNyUt1ek_anWUasZRbYTHQxBbwncx9JmUtqrg9K00hgI31EGaLNW-LprbkzPv_ThC6_P0n7H-PzcP_uH3qmKZQX9YcbmcEBE82Wf61L0bU5MoKRkdt1P2CWIhvOeBB3Is06OB3vWYs60rNIuk1H');">
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="bg-white border-t border-gray-100 px-6 pt-3 pb-8 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex items-end justify-between">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">explore</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-mocha/50">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-bold">Sessions</span>
+</button>
+<!-- Central Scanner Button -->
+<div class="relative -top-4">
+<div class="absolute -inset-2 rounded-full bg-white shadow-lg"></div>
+<button class="relative flex size-14 items-center justify-center rounded-full bg-primary text-white shadow-xl shadow-primary/40 transition-transform active:scale-90">
+<span class="material-symbols-outlined text-[28px]">qr_code_scanner</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-mocha/50">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-bold">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-mocha/50">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</div>
+</nav>
+<!-- iOS Home Indicator Notch -->
+<div class="absolute bottom-1 left-1/2 h-1 w-32 -translate-x-1/2 rounded-full bg-black/10"></div>
+</div>
+</body></html>
